@@ -1,0 +1,7 @@
+body { <--- selector
+    //se reconienda que esten en orden alfabetico
+    atributo: valor;
+    atributo: valor;
+    atributo: valor;
+    atributo: valor;
+}

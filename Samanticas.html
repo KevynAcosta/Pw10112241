@@ -1,10 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
+    <!-- cosas que se van a agregar como ectra a la pagina
+    estilos, java scrip -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        /* para ponerle un diseño 
+        en orden alfabetico los numeros van 1ro*/
+        h1{
+            color: blue;
+          }
+        header {
+            /* pueden ser rgb o ponerlo hexadecimal #AABCDF; rgb(red, green, blue, ALFA que tan transparent);   */
+          background-color: #BBBBBB;  
+        }
+        header nav ul li{
+            /* poner por jerarquia */
+            /* para poner borde (tamaño,tipo,color)*/
+            /* border: 1px solid red; */
+            /* puso la lista en horizontal, en una linea mientras quepan en la pantalla */
+           /* bordes redondos */
+            border-radius: 5px;
+            display: inline-block;
+        }
+        header nav ul li:hover{
+           background-color: yellow;
+           color: red;
+        }
+        /* todo separado */
+        
+    </style>
 </head>
 <!-- etiquetas semanticas para saber como està estructurada la pagina -->
 <body>
@@ -14,12 +42,14 @@
         <img src="logo.jpg" alt="logo">
         <!-- solo debe de haber 1 h1 por pagina-->
         <h1>Tìtulo de la pàgina de PW </h1>
-        live server 
         <!-- menu de navegacion -->
         <nav>
             <ul>
-                <li>Opciones</li>
-                <li>Opciones</li>
+                <li>Inicio</li>
+                <li>Archivo</li>
+                <li>Guardar</li>
+                <li>Nosotros</li>
+                <li>Salir para afuera</li>
             </ul>
         </nav>
     </header>

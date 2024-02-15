@@ -1,0 +1,8 @@
+selectores
+pseudoelementos 
+
+etiquetas (p div, article, section)  //cada seccion debe de ir en orden alfabetico, buena practica
+id( identificadores) # <--- son unicos
+calses . <--- se distingue y se puede recliclar
+
+media queries
