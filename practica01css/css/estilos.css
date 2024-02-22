@@ -1,0 +1,30 @@
+/* LO 1RO ES la configuracion general */
+/* estamos trabajando en el body, todo en el body se hereda */
+/* 16px = 1em (la letra M) */
+body
+{
+    /* agregar un borde rojo para saber donde estan acomodados*/
+    border: 1px solid red;
+    font-size: 16PX; /*1em*/
+    /* margenes de adentro hacia afuera. parametos:
+    1 para todos los lados
+    2 (arriba/abajo), (isquierda/derecha)
+    4 arriba,derecha,abajo,izquierda
+    margenes positivos hace grande, negativos hace chico*/
+    /* distribuye automaticamente el margen que te sobre (auto) /2 */
+    margin: 0px auto;
+    /* MAXIMO DE ancho de la pantalla  */
+    max-width: 1024PX;
+} 
+header
+{
+    /* PARA AGREGAR FONDO */
+    background: #D1E3EE;
+}
+/* los id se ponen con # */
+#logo /* id = "logo"*/
+{
+    /*se puede hacer de 2 formas */
+    margin: -150px 0px 0px 0px;
+    /*margin-top: -150px; */
+}

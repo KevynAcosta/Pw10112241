@@ -6,12 +6,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Práctica CSS 01 </title>
+    <!-- para vincular hoja de estilos -->
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
     <header>
         <!-- antes del logo esta el fondo  -->
         <img src="img/resplandor.png" alt="fondo">
-        <img src="img/logo.png" alt="logo html5">
+        <!-- le ponemos distintivo para hacerle un cambio -->
+        <img src="img/logo.png" alt="logo" id="logo">
+        <!-- modificar menu de navegacion -->
         <nav>
             <ul>
                 <li>Inicio</li>
@@ -22,6 +26,7 @@
                 <li>Seccion</li>
             </ul>
             <form action="">
+                <!-- se pueden distinguir por el tipo -->
                 <!-- el buscador -->
                 <input type="text" placeholder="Buscar aqui">
                 <!-- boton de buscar -->
@@ -30,17 +35,20 @@
             
         </nav>
     </header>
-    <section>
+    <section id="secction01">
         <article>
+            <!-- la imagen gigante -->
             <img src="img/slide2.jpg" alt="slide">
         </article>
     </section>
-    <section>
+    <section id="seccion02">
         <article>
+            <!-- es el mismo acomodo para las 3 imagenes -->
             <img src="img/separador.jpg" alt="separador">
             <!-- salto de linea -->
             <br>
-            una seccion
+            <!-- etiqueta que encierra texto y modificar (span)-->
+            <span class="unaSeccion nito">una seccion</span> 
             <br>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima consectetur vel laborum maiores ex aut quasi exercitationem accusamus ipsa! Obcaecati eum ullam dicta delectus laudantium excepturi illo numquam harum animi.
             <br>
@@ -53,7 +61,9 @@
             <img src="img/separador.jpg" alt="separador">
             <!-- salto de linea -->
             <br>
-            Otra seccion
+            <!-- es diferente la letra -->
+            <!-- son 2 clases separadas con un espacio ( ) -->
+            <span class="otraSeccion nito">Otra seccion</span> 
             <br>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, aperiam sapiente incidunt obcaecati aspernatur nesciunt? Et voluptas iusto a deserunt laborum sint alias, repudiandae architecto cum fugit voluptatibus odit distinctio!
             <br>
@@ -65,7 +75,8 @@
             <img src="img/separador.jpg" alt="separador">
             <!-- salto de linea -->
             <br>
-            Un video
+            <!-- es el mismo tamaño de texto que el anterior y esta en negritas -->
+            <span class="otraSeccion nito">Un video</span> 
             <br>
             <img src="img/video.jpg" alt="video">
 
