@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Práctica 02 CSS</title>
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
     <header>
         <!-- arriba de todo va una imagen (linea de colores) -->
         <img src="img/banner.png" alt="Linea">
         <!-- imagen de granthams -->
-        <img src="img/granthams.png" alt=" granthams">
+        <img src="img/granthams.png" id ="granthams"alt=" granthams">
         <!-- mancha de pintura -->
-        <img src="img/paint.png" alt="Pintura">
+        <img src="img/paint.png" id="paint"alt="Pintura">
         <!-- cuadro de busqueda 
         cuadro de texto   que se ponga search   tamaño del rectangulo-->
         <input type="search" placeholder="Search" size="25">
@@ -28,15 +29,15 @@
         </nav>
     </header>
     <!-- 1ra seccion -->
-    <section>
+    <section id="primerseccion">
         <!-- la imagen verde esta dentro de la seccion pero no adentro del article -->
-        <article>
+        <article id="secc01art01">
             <!-- imagen de venta -->
             <img src="img/slide.jpg" alt="Slide">
         </article>
-        <article>
+        <article id="secc01art02">
             <!-- Texto -->
-            We can offter 
+            <span class="letragrande colorrosa nito">We can offter </span>
             <!-- lista -->
             <ul>
                 <li>Highlt Competitive Prices</li>
@@ -50,18 +51,18 @@
             </ul>
         </article>
         <!-- imagen de ofertas -->
-        <img src="img/bg_offer.png" alt="Ofertas">
+        <img src="img/bg_offer.png" id ="bgoffer"alt="Ofertas">
     </section>
     <!-- seccion para numero de telefono -->
-    <section>
+    <section id="segundaseccion">
         <article>
-            01772 250207
+            <span class="letramediana colorrosa nito"> 01772 250207</span>
         </article>
     </section>
-    <section>
+    <section id="terceraseccion">
         <article>
                 <!-- imagen de cerdito -->
-              <img src="img/cerdito.png" alt="Cerdito"> Save this Spring
+              <img src="img/cerdito.png" alt="Cerdito"> <span class="colorrosa nito">Save this Spring</span> 
               <!-- salto de linea -->
                <br>
               <!-- lorem para poner texto ramdom -->
@@ -69,11 +70,11 @@
               <!-- separador de parrafo -->
               <p>
               <!-- texto -->
-              Find out more...
+              <span class="colorrosa">Find out more...</span> 
         </article>
         <article>
             <!-- imagen de la hoja -->
-            <img src="img/hoja.png" alt="Hoja"> Eco Frienly
+            <img src="img/hoja.png" alt="Hoja"> <span class="colorverde nito">Eco Frienly</span> 
             <!-- salto de linea -->
             <br>
             <!-- lorem -->
@@ -82,7 +83,7 @@
         </article>
         <article>
             <!-- imagen new -->
-            <img src="img/new.png" alt="Nuevo"> Upload your life
+            <img src="img/new.png" alt="Nuevo"> <span class="colorazul nito">Upload your life</span> 
             <!-- salto de linea -->
             <br>
             <!-- lorem -->
@@ -90,11 +91,11 @@
             <!-- salto de parrafo -->
             <p></p>
             <!-- texto -->
-            Upload your File Now...
+            <span class="colorazul">Upload your File Now...</span> 
         </article>
         <article>
             <!-- texto -->
-            Stay in touch
+            <span class="letramediana colorrosa">Stay in touch</span> 
             <!-- salto de linea -->
             <br>
             <!-- texto -->

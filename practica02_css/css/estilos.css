@@ -1,0 +1,50 @@
+body
+{
+    font-size: 16px; /*1em*/
+    margin: 0px auto;
+    /* tamaño maximo */
+    max-width: 1078px;
+    /* tamaño minimo */
+    min-width: 1078px;
+}
+/* afectamos todos los input dentro del header */
+header input
+{
+    float: right; 
+    margin-right: -200px;
+    margin-top: 15px;
+    position: relative;
+}
+header nav
+{
+    /* para saber donde esta la caja */
+    /*border: 1px solid red;*/
+    /* margin-texaline-.... */
+    margin-left: 220px;
+}
+header nav ul li 
+{
+    /* borde hacia abajo, de color gris */
+    border-bottom: 1px solid gray;
+    /* letras de color gris */
+    color: gray;
+    /* formato horizontal */
+    display: inline-block;
+    /* aumentar tamaño de letra */
+    font-size: 1.8em;
+    /* para separar */
+    margin-right: 15px;
+    /* subrayar las letras    text-decoration: underline;   no nos sirve*/
+    /* espacio entre la letra y el fondo de la caja (subrayado*/
+   padding-bottom: 2px;
+}
+#granthams
+{
+    margin-left: 25px;
+    margin-top: 25px;
+}
+#paint
+{
+    /* mover a la derecha */
+    float: right;
+}
