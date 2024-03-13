@@ -19,11 +19,17 @@ body
 }
 footer article
 {
+    display:  inline-block;
+    margin-top: 20px;
+    padding: 10px;
+    vertical-align: top;
+    width: 31.1%;
     
 }
 footer img
 {
-    width: 300px;
+    padding-left: 70px;
+    width: 250px;
 }
 header ul
 {
@@ -36,7 +42,7 @@ header ul li
     padding: 8px 14px;
     /* aliner texto al centro */
     text-align: center;
-    width: 17.0%;
+    width: 17.75%;
 }
 header ul li:nth-child(2)
 {
@@ -87,6 +93,11 @@ section article:nth-child(5)
 {
     background: var(--color-gris);
 }
+hr
+{
+    border-style: dashed;
+    color: var(--color-linea);
+}
 /* si ponemos , es un y, 2 cosas */
 section,footer
 {
@@ -107,6 +118,11 @@ section img
 .letra-gris
 {
     color: var(--color-linea);
+}
+.read-more
+{
+    /* border: 1px solid #D33040; */
+    margin-left: 220px;
 }
 .tam-menu-lateral
 {
