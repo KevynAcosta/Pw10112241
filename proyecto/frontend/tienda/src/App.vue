@@ -5,8 +5,9 @@ import MenuView from './views/MenuView.vue'
 
 <template>
   <header>
+    <MenuView/>
   </header>
-  <MenuView/>
+  
   <RouterView />
 </template>
 
