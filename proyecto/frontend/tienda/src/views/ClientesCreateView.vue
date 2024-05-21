@@ -2,47 +2,57 @@
     <div class="container mt-5">
         <div class="card">
             <div class="card-header">
-                <h4>Agregar clientes</h4>
+                <h4>Agregar cliente</h4>
                 <div v-if="mensaje == 1" class="alert alert-success" role="alert">
-                    Datos guardados con exito 
+                    Datos guardados con éxito
                 </div>
             </div>
             <div class="card-body">
+                <Form :validation-schema="validationSchema" @submit="onTodoBien">
                 <div class="mb-3">
-                    id
-                    <input type="text" class="form-control" v-model="model.cliente.id">
+                    Id
+                    <Field name="id" id="id" type="text" class="form-control" v-model="model.cliente.id" />
+                    <ErrorMessage name="id" class="errorValidacion"/>
                 </div>
-                <div class="mb-3">
+                 <div class="mb-3">
                     Nombre
-                    <input type="text" class="form-control" v-model="model.cliente.nombre">
+                    <Field name="nombre" id="nombre" type="text" class="form-control" v-model="model.cliente.nombre" />
+                    <ErrorMessage name="nombre" class="errorValidacion"/>
                 </div>
-                <div class="mb-3">
+                 <div class="mb-3">
                     Apellido
-                    <input type="text" class="form-control" v-model="model.cliente.apellido">
+                    <Field name="apellido" id="apellido" type="text" class="form-control" v-model="model.cliente.apellido" />
+                    <ErrorMessage name="apellido" class="errorValidacion"/>
                 </div>
-                <div class="mb-3">
-                    Direccion
-                    <input type="text" class="form-control" v-model="model.cliente.direccion">
+                 <div class="mb-3">
+                    Dirección
+                    <Field name="direccion" id="direccion" type="text" class="form-control" v-model="model.cliente.direccion" />
+                    <ErrorMessage name="direccion" class="errorValidacion"/>
                 </div>
-                <div class="mb-3">
-                    Telefono
-                    <input type="text" class="form-control" v-model="model.cliente.telefono">
+                 <div class="mb-3">
+                    Teléfono
+                    <Field name="telefono" id="telefono" type="text" class="form-control" v-model="model.cliente.telefono" />
+                    <ErrorMessage name="telefono" class="errorValidacion"/>
                 </div>
-                <div class="mb-3">
+                 <div class="mb-3">
                     RFC
-                    <input type="text" class="form-control" v-model="model.cliente.rfc">
+                    <Field name="rfc" id="rfc" type="text" class="form-control" v-model="model.cliente.rfc" />
+                    <ErrorMessage name="rfc" class="errorValidacion"/>
                 </div>
-                <div class="mb-3">
+                 <div class="mb-3">
                     CURP
-                    <input type="text" class="form-control" v-model="model.cliente.curp">
+                    <Field name="curp" id="curp" type="text" class="form-control" v-model="model.cliente.curp" />
+                    <ErrorMessage name="curp" class="errorValidacion"/>
                 </div>
-                <div class="mb-3">
+                 <div class="mb-3">
                     CP
-                    <input type="text" class="form-control" v-model="model.cliente.cp">
+                    <Field name="cp" id="cp" type="text" class="form-control" v-model="model.cliente.cp" />
+                    <ErrorMessage name="cp" class="errorValidacion"/>
                 </div>
-                <div class="mb-3">
-                    <button class="btn btn-primary" @click="guardarCliente()">Guardar</button>
+                 <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
+                </Form>
             </div>
         </div>
 
@@ -50,10 +60,39 @@
 </template>
 <script>
 import axios from 'axios';
-export default{
+import { Field,Form,ErrorMessage } from 'vee-validate';
+import { toTypedSchema } from '@vee-validate/zod';
+import * as zod from 'zod';
+export default {
     name: "ClientesCreate",
+    components: { Field,Form,ErrorMessage },
     data(){
+        const phoneRegex = new RegExp(
+            /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
+        );
+        const rfcRegex = new RegExp(
+            /^([a-z]{3,4})(\d{2})(\d{2})(\d{2})([0-9a-z]{3})$/i
+        );
+        const curpRegex = new RegExp(
+            /^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9][12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/g
+        );
+        const cpRegex = new RegExp(
+            /^[0-9]{5}$/
+        );
+        const validationSchema = toTypedSchema(
+            zod.object({
+                id: zod.number({message: 'Solo numeros'}),
+                nombre: zod.string({message: 'Requerido'}),
+                apellido: zod.string({message: 'Requerido'}),
+                direccion: zod.string({message: 'Requerido'}),
+                telefono: zod.string().regex(phoneRegex,'Numero no valido').min(10,{message: 'Minimo 10'}),
+                rfc: zod.string().regex(rfcRegex,'RFC no valido'),
+                curp: zod.string().regex(curpRegex,'CURP no valida'),
+                cp: zod.string().regex(cpRegex,'Codigo postal no valido'),
+            })
+        )
         return{
+            validationSchema,
             mensaje: 0,
             model:{
                 cliente:{
@@ -70,10 +109,15 @@ export default{
         }
     },
     methods:{
+        onTodoBien(){
+            alert('Todo validado');
+            this.guardarCliente();
+        },
         guardarCliente(){
             axios.post('http://localhost:3000/api/clientes',this.model.cliente)
             .then(res => {
-                if(res.data.affectedRows ==1){ //si insertamos 1 registro
+                //si insertamos 1 registro
+                if(res.data.affectedRows == 1){ 
                     //limpiamos los cuadros de texto
                     this.model.cliente = { 
                         id: '',
@@ -85,7 +129,7 @@ export default{
                         curp: '',
                         cp: ''
                     }
-                    //para que salga el mensaje de exito
+                    //Para que salga el mensaje de éxito
                     this.mensaje = 1;
                 }
             })
@@ -93,3 +137,10 @@ export default{
     }
 }
 </script>
+
+<style scoped>
+    .errorValidacion{
+        color: red;
+        font-weight: bold;
+    }
+</style>
